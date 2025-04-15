@@ -1,0 +1,24 @@
+[Unit]
+Description=RabbitMQ Server
+After=network.target epmd@0.0.0.0.socket
+Wants=network.target epmd@0.0.0.0.socket
+
+[Service]
+Type=notify
+User=root
+Group=root
+NotifyAccess=all
+TimeoutStartSec=3600
+Restart=on-failure
+RestartSec=10
+ExecStart=/usr/local/rabbitmq/sbin/rabbitmq-server
+ExecStop=/usr/local/rabbitmq/sbin/rabbitmqctl stop
+ExecStop=/bin/sh -c "while ps -p $MAINPID >/dev/null 2>&1;do sleep 1;done"
+
+Environment="NODENAME=node18"
+Environment="RABBITMQ_HOME=/"
+Environment="RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq.conf"
+
+
+[Install]
+WantedBy=multi-user.target
