@@ -24,3 +24,6 @@ mv rabbimt_server_4.0.8 /usr/local/rabbitmq
 echo 'export PATH=$PATH:/usr/local/rabbitmq/sbin' >> ~/.bashrc
 source ~/.bashrc
 
+
+# https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/refs/heads/main/deps/rabbit/docs/rabbitmq.conf.example
+# https://raw.githubusercontent.com/rabbitmq/rabbitmq-server/refs/heads/main/deps/rabbit/docs/rabbitmq-server.service.example
